@@ -1,11 +1,28 @@
 .top-bar {
   background-color: $grey;
-  padding: 24px;
+  padding: 8px 24px;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: $radius-m;
   margin: 0 auto 24px;
+  height: 72px;
+
+  @media (min-width: $min-width-s) {
+    padding: 24px;
+    border-radius: $radius-m;
+    margin: 40px auto 24px auto;
+  }
+
+  @media (min-width: $min-width-l) {
+    margin: 0 auto 24px auto;
+  }
+
+  &__icon {
+    display: none;
+    @media (min-width: $min-width-s) {
+      display: block;
+    }
+  }
 }

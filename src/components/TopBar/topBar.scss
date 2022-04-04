@@ -1,0 +1,11 @@
+.top-bar {
+  background-color: $grey;
+  padding: 24px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: $radius-m;
+  margin: 0 auto 24px;
+}

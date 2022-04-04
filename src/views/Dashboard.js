@@ -10,7 +10,8 @@ import TitleBox from "../components/TitleBox/TitleBox";
 import Navigation from "../components/Navigation/Navigation";
 import Card from "../components/Card/Card";
 import FeedbackEmpty from "../components/FeedbackEmpty/FeedbackEmpty";
-// import { UsersContext } from "providers/UsersProvider";
+import TopBar from "../components/TopBar/TopBar";
+
 import "../index.scss";
 const Dashboard = () => {
   return (
@@ -23,6 +24,10 @@ const Dashboard = () => {
           description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
         />
       </Box>
+      <TopBar
+        suggestions={5}
+        buttonType="purple"
+        buttonText="+ Add feedback"></TopBar>
     </>
   );
 };

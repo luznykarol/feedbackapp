@@ -4,10 +4,11 @@ const Button = ({
   disabled,
   onClick,
   text = "Button",
-  className = "purple",
+  type = "orange",
+  className,
 }) => {
   const styles = `
-  button button--${className}`;
+  button button--${type} ${className}`;
 
   return (
     <button

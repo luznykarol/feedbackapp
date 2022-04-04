@@ -1,0 +1,21 @@
+.feedback-empty {
+  &__inner {
+    max-width: 410px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 87px 0;
+  }
+
+  &__icon {
+    max-width: 108px;
+    margin: 0 auto 52px;
+    svg {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    margin: 48px auto 0;
+  }
+}

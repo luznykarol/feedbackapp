@@ -9,6 +9,7 @@ import Tag from "../components/Tag/Tag";
 import TitleBox from "../components/TitleBox/TitleBox";
 import Navigation from "../components/Navigation/Navigation";
 import Card from "../components/Card/Card";
+import FeedbackEmpty from "../components/FeedbackEmpty/FeedbackEmpty";
 // import { UsersContext } from "providers/UsersProvider";
 import "../index.scss";
 const Dashboard = () => {
@@ -16,6 +17,12 @@ const Dashboard = () => {
     <>
       <Navigation />
       <Card />
+      <Box>
+        <FeedbackEmpty
+          title="There is no feedback yet."
+          description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
+        />
+      </Box>
     </>
   );
 };

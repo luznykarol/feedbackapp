@@ -1,6 +1,6 @@
 import React from "react";
 import Suggestions from "../../assets/icons/suggestions";
-import Empty from "../../assets/icons/Empty";
+import Empty from "../../assets/icons/empty";
 
 const Icon = ({ icon, className }) => {
   const icons = {

@@ -1,0 +1,43 @@
+.map-container {
+}
+.map-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 175px;
+  width: 100%;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__oval {
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    margin: 0 16px 0 0;
+    flex-shrink: 0;
+
+    &--purple {
+      background-color: $purple;
+    }
+
+    &--orange {
+      background-color: $orange;
+    }
+
+    &--blue {
+      background-color: $blue-lighter;
+    }
+  }
+
+  &__quantity {
+    font-weight: 700;
+  }
+
+  &__text,
+  &__quantity {
+    color: $grey-lightest;
+  }
+}

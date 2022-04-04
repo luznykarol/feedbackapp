@@ -1,0 +1,46 @@
+.button {
+  border-radius: $radius-m;
+  max-width: 158px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  transition: 0.4s all ease;
+  color: $light;
+  font-weight: bold;
+  cursor: pointer;
+
+  &--purple {
+    background-color: $purple;
+
+    &:hover {
+      background-color: #c75af6;
+    }
+  }
+
+  &--blue {
+    background-color: $blue;
+    &:hover {
+      background-color: #7c91f9;
+    }
+  }
+
+  &--grey {
+    background-color: $grey-lighter;
+    &:hover {
+      background-color: #656ea3;
+    }
+  }
+
+  &--orange {
+    background-color: $orange;
+    &:hover {
+      background-color: #e98888;
+    }
+  }
+
+  // @media (min-width: $min-width-md) {
+  //   margin: 0;
+  // }
+}

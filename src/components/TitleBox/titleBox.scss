@@ -1,0 +1,20 @@
+.title-box {
+  background-image: $gradient;
+  padding: 62px 78px 24px 24px;
+  border-radius: $radius-m;
+  margin: 0 0 24px 0;
+
+  &__title,
+  &__description {
+    color: $white;
+  }
+
+  &__title {
+    font-size: $text-xl;
+    font-weight: bold;
+  }
+
+  &__description {
+    font-weight: 500;
+  }
+}

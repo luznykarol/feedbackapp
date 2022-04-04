@@ -3,24 +3,30 @@ import Box from "../Box/Box";
 import { Link } from "react-router-dom";
 import { categories } from "../../data/categories";
 import Tag from "../Tag/Tag";
+import Burger from "./Burger";
 
 const Navigation = ({
   title = "Frontend Mentor",
   description = "Feedback app",
 }) => {
+  const [selected, setSelected] = useState("all");
+  const [navActive, setNavActive] = useState(false);
+
   const handleTagChange = (e) => {
     setSelected(e.target.value);
   };
 
-  const [selected, setSelected] = useState("all");
-
-  console.log("selected", selected);
+  const handleBurgerClick = (e) => {
+    e.preventDefault();
+    setNavActive(!navActive);
+  };
 
   return (
     <nav className="nav">
       <div className="title-box">
         <div className="title-box__title">{title}</div>
         <div className="title-box__description">{description}</div>
+        <Burger navActive={navActive} onClick={handleBurgerClick} />
       </div>
 
       <Box>

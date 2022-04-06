@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Tag = ({ text = "Enhancement", value, onClick, selected }) => {
+const Tag = ({ text = "Enhancement", value, onChange, selected }) => {
   return (
     <div className="tag">
       <input
@@ -9,7 +9,7 @@ const Tag = ({ text = "Enhancement", value, onClick, selected }) => {
         type="radio"
         value={value}
         name="category"
-        onChange={onClick}
+        onChange={onChange}
       />
       <label htmlFor={value}>{text}</label>
     </div>

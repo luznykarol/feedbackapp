@@ -2,18 +2,19 @@ h1,
 h2,
 h3,
 h4 {
+  margin: 0;
   font-weight: bold;
 }
 
 h2,
 h3 {
-  letter-spacing: -0.25;
+  letter-spacing: -0.25px;
 }
 
 h1 {
   font-size: $text-xxl;
   line-height: 35px;
-  letter-spacing: -0.33;
+  letter-spacing: -0.33px;
 }
 
 h2 {
@@ -29,7 +30,7 @@ h3 {
 h4 {
   font-size: $text-s;
   line-height: 20px;
-  letter-spacing: -0.2;
+  letter-spacing: -0.2px;
 }
 
 p {

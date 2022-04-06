@@ -23,7 +23,6 @@ const Navigation = ({
 
   return (
     <nav className="nav">
-      {/* <div className="wrapper"> */}
       <div className="nav__container">
         <div className="nav__title-box">
           <div className="nav__title-box__text">
@@ -51,7 +50,7 @@ const Navigation = ({
                     selected={selected}
                     value={item.tag}
                     text={item.label}
-                    onClick={handleTagChange}
+                    onChange={handleTagChange}
                   />
                 );
               })}
@@ -59,14 +58,15 @@ const Navigation = ({
           </Box>
           <Box className="nav__box__map">
             <div className="nav__map-header">
-              <div className="">Roadmap</div>
-              <Link to="/roadmap">View</Link>
+              <h3 className="">Roadmap</h3>
+              <Link className="link" to="/roadmap">
+                View
+              </Link>
             </div>
             <div className="map-container"></div>
           </Box>
         </div>
       </div>
-      {/* </div> */}
     </nav>
   );
 };

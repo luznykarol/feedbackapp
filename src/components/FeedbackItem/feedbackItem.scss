@@ -1,0 +1,70 @@
+.feedback-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $min-width-s) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__left {
+    order: 3;
+    margin: 16px 0 0;
+    @media (min-width: $min-width-s) {
+      order: 0;
+      margin: 0;
+    }
+  }
+  &__center {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $min-width-s) {
+      margin: 0 16px;
+    }
+
+    @media (min-width: $min-width-s) {
+      margin: 0 24px 0 40px;
+    }
+    &__tag {
+      background-color: $light;
+      padding: 5px 16px;
+      border-radius: $radius-m;
+      color: $blue;
+      font-size: $text-xs;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: capitalize;
+      margin: 0 auto 0 0;
+    }
+  }
+
+  &__right {
+    align-self: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @media (min-width: $min-width-s) {
+      position: relative;
+    }
+    &__comment {
+      width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__count {
+        font-weight: bold;
+      }
+      &__icon {
+        display: flex;
+        width: 18px;
+        height: 16px;
+      }
+    }
+  }
+}

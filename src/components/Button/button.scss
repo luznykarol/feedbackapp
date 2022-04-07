@@ -1,15 +1,23 @@
 .button {
-  border-radius: $radius-m;
-  max-width: 158px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
   transition: 0.4s all ease;
-  color: $light;
+
+  font-size: $text-s;
   font-weight: bold;
   cursor: pointer;
+
+  &--purple,
+  &--blue,
+  &--orange,
+  &--grey {
+    max-width: 158px;
+    width: 100%;
+    border-radius: $radius-m;
+    padding: 12px 16px;
+    color: $light;
+  }
 
   &--purple {
     background-color: $purple;
@@ -40,7 +48,33 @@
     }
   }
 
-  // @media (min-width: $min-width-md) {
-  //   margin: 0;
-  // }
+  &--transparent {
+    background-color: transparent;
+    color: $grey-lightest;
+
+    .button__icon {
+      svg {
+        path {
+          stroke: $blue;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    transform: rotate(-90deg);
+    margin: 0 15px 0 0;
+    width: 9px;
+    height: 6px;
+    display: flex;
+
+    svg {
+      width: 100%;
+      height: 100%;
+
+      path {
+        stroke: $white;
+      }
+    }
+  }
 }

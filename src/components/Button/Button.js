@@ -1,14 +1,15 @@
 import React from "react";
+import Icon from "../Icon/Icon";
 
 const Button = ({
   disabled,
   onClick,
   text = "Button",
-  type = "orange",
+  color = "orange",
   className,
+  icon,
 }) => {
-  const styles = `
-  button button--${type} ${className}`;
+  const styles = `button button--${color} ${className}`;
 
   return (
     <button
@@ -16,6 +17,7 @@ const Button = ({
       className={styles}
       disabled={disabled}
       onClick={onClick}>
+      {icon && <Icon className="button__icon" icon="votearrow" />}
       {text}
     </button>
   );

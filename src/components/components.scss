@@ -1,7 +1,8 @@
 @import "./Button/button.scss";
-@import "./CustomSelect/customSelect.scss";
-@import "./Field/field.scss";
-@import "./MapItem/mapItem.scss";
+@import "./FormInputs/Select/select.scss";
+@import "./FormInputs/Field/field.scss";
+@import "./RoadmapLabel/roadmapLabel.scss";
+@import "./RoadmapItem/roadmapItem.scss";
 @import "./Tag/tag.scss";
 @import "./Box/box.scss";
 @import "./TitleBox/titleBox.scss";
@@ -12,3 +13,8 @@
 @import "./Paragraph/paragraph.scss";
 @import "./TopBar/topBar.scss";
 @import "./Upvote/upvote.scss";
+@import "./FeedbackItem/feedbackItem.scss";
+@import "./FeedbackBar/feedbackBar.scss";
+@import "./Tabs/tabs.scss";
+@import "./CommentBubble/commentBubble.scss";
+@import "./Form/form.scss";

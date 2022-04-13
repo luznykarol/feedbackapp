@@ -1,0 +1,14 @@
+.comment-bubble {
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__number {
+    font-weight: bold;
+  }
+  &__icon {
+    display: flex;
+    width: 18px;
+    height: 16px;
+  }
+}

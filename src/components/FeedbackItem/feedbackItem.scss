@@ -1,3 +1,16 @@
+.feedback {
+  &__box {
+    @media (min-width: $min-width-s) {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    @media (min-width: $min-width-l) {
+      max-width: 100%;
+    }
+  }
+}
+
 .feedback-item {
   position: relative;
   display: flex;
@@ -23,9 +36,11 @@
 
     @media (min-width: $min-width-s) {
       margin: 0 16px;
+      max-width: 475px;
+      width: 100%;
     }
 
-    @media (min-width: $min-width-s) {
+    @media (min-width: $min-width-l) {
       margin: 0 24px 0 40px;
     }
     &__tag {

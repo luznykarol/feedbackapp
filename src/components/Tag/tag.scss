@@ -29,12 +29,6 @@
     height: 100%;
   }
 
-  // input[type="radio"] + label {
-  //   // position: absolute;
-
-  //   // opacity: 0;
-  // }
-
   label {
     display: flex;
     flex-shrink: 0;
@@ -57,5 +51,22 @@
   input[type="radio"]:checked + label {
     background-color: $blue;
     color: $white;
+  }
+
+  &--fixed {
+    text-transform: capitalize;
+    border-radius: $radius-m;
+    position: relative;
+    background-color: $light;
+    border-radius: $radius-m;
+    font-size: $text-s;
+    font-weight: 600;
+    color: $blue;
+    padding: 5px 16px;
+    display: inline-block;
+
+    &__roadmap {
+      margin: 12px 0 0 0;
+    }
   }
 }

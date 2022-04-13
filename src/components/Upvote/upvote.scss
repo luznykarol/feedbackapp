@@ -2,7 +2,7 @@
   position: relative;
   border-radius: $radius-m;
   outline: none;
-
+  display: flex;
   &__count {
     font-size: $text-xs;
     font-weight: bold;
@@ -13,7 +13,12 @@
     width: 11px;
     height: 7px;
     display: flex;
-    margin: 0 auto 8px auto;
+
+    margin: 0 10px 0 0;
+
+    @media (min-width: $min-width-s) {
+      margin: 0 auto 8px auto;
+    }
   }
 
   input {
@@ -29,29 +34,29 @@
     z-index: 100;
   }
 
-  // input[type="radio"] + label {
-  //   // position: absolute;
-
-  //   // opacity: 0;
-  // }
-
   label {
     outline: none;
     display: flex;
-    flex-shrink: 1;
-    flex-direction: column;
+
+    line-height: 1;
     justify-content: space-between;
-    width: 40px;
-    height: 53px;
+    align-items: center;
     cursor: pointer;
     margin: 0;
-    padding: 12px 11px 12px;
+    padding: 9px 16px;
     transition: 0.4s background-color, color ease;
     background-color: $light;
     border-radius: $radius-m;
     font-size: $text-s;
     font-weight: 600;
-    color: $blue;
+    color: $grey-lighter;
+
+    @media (min-width: $min-width-s) {
+      flex-direction: column;
+      width: 40px;
+      height: 53px;
+      padding: 12px 11px 12px;
+    }
 
     &:hover {
       background-color: $blue-lightest;

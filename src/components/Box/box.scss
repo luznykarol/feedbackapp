@@ -1,5 +1,40 @@
 .box {
-  padding: 24px;
   background-color: $white;
   border-radius: $radius-m;
+  position: relative;
+
+  &__form {
+    margin: 68px auto 0 auto;
+  }
+
+  &__icon {
+    background-image: $gradient;
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -28px;
+    left: 42px;
+
+    .plus {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pen {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.medium {
+  padding: 24px;
+}
+
+.large {
+  padding: 52px 42px;
 }

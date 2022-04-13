@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Box from "../Box/Box";
 import { Link } from "react-router-dom";
 import { categories } from "../../data/categories";
+
 import Tag from "../Tag/Tag";
+import RoadmapLabel from "../RoadmapLabel/RoadmapLabel";
 import Burger from "./Burger";
+import { TaskContext } from "../../providers/TaskProvider";
 
 const Navigation = ({
   title = "Frontend Mentor",
   description = "Feedback app",
+  a,
 }) => {
+  const { roadmap } = useContext(TaskContext);
   const [selected, setSelected] = useState("all");
   const [navActive, setNavActive] = useState(false);
 
@@ -63,7 +68,11 @@ const Navigation = ({
                 View
               </Link>
             </div>
-            <div className="map-container"></div>
+            <div className="map-container">
+              {roadmap.map((item) => {
+                return <RoadmapLabel item={item} />;
+              })}
+            </div>
           </Box>
         </div>
       </div>

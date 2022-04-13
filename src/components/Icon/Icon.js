@@ -4,6 +4,8 @@ import Empty from "../../assets/icons/empty";
 import Bulb from "../../assets/icons/bulb";
 import VoteArrow from "../../assets/icons/votearrow";
 import TextBubble from "../../assets/icons/textbubble";
+import Pen from "../../assets/icons/pen";
+import Plus from "../../assets/icons/plus";
 
 const Icon = ({ icon, className }) => {
   const icons = {
@@ -12,6 +14,8 @@ const Icon = ({ icon, className }) => {
     bulb: Bulb,
     votearrow: VoteArrow,
     textbubble: TextBubble,
+    plus: Plus,
+    pen: Pen,
   };
 
   const Icon = icons[icon];

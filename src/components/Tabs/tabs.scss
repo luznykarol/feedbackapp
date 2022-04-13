@@ -1,0 +1,85 @@
+.tabs {
+  @media (min-width: $min-width-s) {
+    display: none;
+  }
+  &__titles {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(140, 146, 179, 0.25);
+  }
+
+  &__content {
+    padding: 24px 16px;
+  }
+  &__items {
+    background-color: #f5f5f5;
+
+    margin: 0;
+  }
+
+  &__header {
+    margin: 0 auto 24px auto;
+    &__title {
+      text-transform: capitalize;
+    }
+
+    &__description {
+      font-size: $text-s;
+    }
+  }
+}
+
+.tab {
+  &__item {
+    text-transform: capitalize;
+    background-color: $white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: $text-s;
+    font-weight: bold;
+    color: rgba(58, 67, 116, 0.4);
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+      height: 4px;
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+      transition: 0.4s all ease-in-out;
+    }
+
+    &--active {
+      &--live,
+      &--planned,
+      &--in-progress {
+        color: $grey-lighter;
+      }
+
+      &--live {
+        &:after {
+          background-color: $blue-lighter;
+        }
+      }
+
+      &--planned {
+        &:after {
+          background-color: $orange;
+        }
+      }
+
+      &--in-progress {
+        &:after {
+          background-color: $purple;
+        }
+      }
+    }
+  }
+}

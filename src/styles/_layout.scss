@@ -1,0 +1,46 @@
+.dashboard {
+  &__card {
+    width: calc(100% - 32px);
+  }
+}
+
+.template {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  @media (min-width: $min-width-s) {
+    padding: 56px 16px;
+  }
+
+  @media (min-width: $min-width-l) {
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  &__dashboard {
+    @media (min-width: $min-width-l) {
+      display: flex;
+    }
+    &__content {
+      width: 100%;
+
+      @media (min-width: $min-width-l) {
+        margin: 0 0 0 30px;
+      }
+    }
+  }
+}
+
+.roadmap {
+  &__heading {
+    margin: 4px 0 0 0;
+    color: $white;
+  }
+
+  &__desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

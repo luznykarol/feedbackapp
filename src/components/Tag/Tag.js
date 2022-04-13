@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Tag = ({ text = "Enhancement", value, onChange, selected }) => {
-  return (
+const Tag = ({
+  fixed = false,
+  text = "Enhancement",
+  value,
+  onChange,
+  selected,
+  className,
+}) => {
+  return fixed ? (
+    <div className={`tag--fixed tag--fixed__${className}`}>{text}</div>
+  ) : (
     <div className="tag">
       <input
         id={value}

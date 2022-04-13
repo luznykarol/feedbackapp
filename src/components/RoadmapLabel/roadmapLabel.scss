@@ -1,9 +1,16 @@
-.map-item {
+.map-container {
+  margin: 24px 0 0 0;
+}
+.roadmap-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 175px;
+
   width: 100%;
+
+  &:not(:last-of-type) {
+    margin: 0 0 4px 0;
+  }
 
   &__left {
     display: flex;
@@ -17,16 +24,16 @@
     margin: 0 16px 0 0;
     flex-shrink: 0;
 
-    &--purple {
-      background-color: $purple;
+    &--live {
+      background-color: $blue-lighter;
     }
 
-    &--orange {
+    &--planned {
       background-color: $orange;
     }
 
-    &--blue {
-      background-color: $blue-lighter;
+    &--in-progress {
+      background-color: $purple;
     }
   }
 
@@ -36,6 +43,7 @@
 
   &__text,
   &__quantity {
+    text-transform: capitalize;
     color: $grey-lightest;
   }
 }

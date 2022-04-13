@@ -1,41 +1,29 @@
 import React from "react";
 import Box from "../Box/Box";
 import Upvote from "../Upvote/Upvote";
-import Icon from "../Icon/Icon";
-const FeedbackItem = ({
-  vote,
-  title = "Add tags for solutions",
-  description = "Easier to search for solutions based on a specific stack. Easier to search for solutions based on a specific stack. Easier to search for solutions based on a specific stack.",
-  tag = "enhancement",
-  commentCount = 2,
-  handleChange,
-}) => {
+import CommentBubble from "../CommentBubble/CommentBubble";
+const FeedbackItem = ({ handleChange, item }) => {
+  const { title, description, category, comments, upvotes } = item;
+
+  const noOfComments = comments?.length;
   return (
     <Box className="feedback__box">
       <article className="feedback-item">
         <div className="feedback-item__left">
           <Upvote
-            checked={vote.value}
+            checked={false}
             onChange={handleChange}
             name="test"
-            voteCount={vote.count}
+            voteCount={upvotes}
           />
         </div>
         <div className="feedback-item__center">
           <h3>{title}</h3>
           <p>{description}</p>
-          <div className="feedback-item__center__tag">{tag}</div>
+          <div className="feedback-item__center__tag">{category}</div>
         </div>
         <div className="feedback-item__right">
-          <div className="feedback-item__right__comment">
-            <Icon
-              className="feedback-item__right__comment__icon"
-              icon="textbubble"
-            />
-            <div className="feedback-item__right__comment__count">
-              {commentCount}
-            </div>
-          </div>
+          <CommentBubble number={noOfComments} />
         </div>
       </article>
     </Box>

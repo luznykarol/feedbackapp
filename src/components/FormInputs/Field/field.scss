@@ -2,9 +2,27 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  .input {
+
+  &:not(:last-of-type) {
+    margin: 0 0 24px 0;
+  }
+
+  &__info {
+    margin: 0 0 16px 0;
+    &__title,
+    &__description {
+      font-size: $text-s;
+    }
+    &__title {
+      font-weight: bold;
+    }
+  }
+
+  .input,
+  .textarea {
     background-color: $cream;
     width: 100%;
+
     border-radius: $radius-s;
     padding: 12px 16px;
     border: 1px solid transparent;
@@ -29,5 +47,9 @@
         left: 0;
       }
     }
+  }
+
+  .texarea {
+    min-height: 96px;
   }
 }

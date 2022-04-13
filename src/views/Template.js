@@ -1,7 +1,7 @@
 import React from "react";
 
-const Template = ({ children }) => {
-  return <div className="dashboard-template">{children}</div>;
+const Template = ({ children, className }) => {
+  return <div className={`template template__${className}`}>{children}</div>;
 };
 
 export default Template;

@@ -1,24 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import MainTemplate from "components/templates/MainTemplate/MainTemplate";
 import Dashboard from "./Dashboard";
 import Roadmap from "./Roadmap";
-
-// import UsersProvider from "providers/UsersProvider";
+import AddFeedback from "./AddFeedback";
+import TaskProvider from "../providers/TaskProvider";
 
 const Root = () => {
   return (
-    // <Template>
     <>
       <Router id="root">
-        {/* <UsersProvider> */}
-
-        <Routes>
-          <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/roadmap" element={<Roadmap />}></Route>
-        </Routes>
-
-        {/* </UsersProvider> */}
+        <TaskProvider>
+          <Routes>
+            <Route path="/" element={<Dashboard />}></Route>
+            <Route path="/roadmap" element={<Roadmap />}></Route>
+            <Route path="/add-feedback" element={<AddFeedback />}></Route>
+          </Routes>
+        </TaskProvider>
       </Router>
     </>
   );

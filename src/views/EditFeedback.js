@@ -1,14 +1,17 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import FeedbackBar from "../components/FeedbackBar/FeedbackBar";
-import Button from "../components/Button/Button";
+
+import FormEditFeedback from "../components/Form/FormEditFeedback";
 import Template from "../views/Template";
 
 const EditFeedback = () => {
+  let { id } = useParams();
+
   return (
-    <Template>
-      <FeedbackBar>
-        <Button color="blue" text="Edit Feedback" />
-      </FeedbackBar>
+    <Template className="add-feedback">
+      <FeedbackBar />
+      <FormEditFeedback feedbackId={parseInt(id)} />
     </Template>
   );
 };

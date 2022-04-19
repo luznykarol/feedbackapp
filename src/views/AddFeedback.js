@@ -5,7 +5,7 @@ import Template from "../views/Template";
 
 const AddFeedback = () => {
   return (
-    <Template>
+    <Template className="add-feedback">
       <FeedbackBar />
       <FormAddFeedback title="Create New Feedback" />
     </Template>

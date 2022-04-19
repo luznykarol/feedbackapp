@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import TopBar from "../components/TopBar/TopBar";
+import { useNavigate } from "react-router-dom";
 import FeedbackEmpty from "../components/FeedbackEmpty/FeedbackEmpty";
 import Box from "../components/Box/Box";
 import Icon from "../components/Icon/Icon";
@@ -10,7 +11,7 @@ import { TaskContext } from "../providers/TaskProvider";
 
 const Dashboard = () => {
   const { tasks } = useContext(TaskContext);
-
+  const navigate = useNavigate();
   const [vote, setVote] = useState({ value: false, count: 53 });
 
   const handleChange = () => {
@@ -26,19 +27,27 @@ const Dashboard = () => {
       <div className="template__dashboard__content">
         <TopBar buttonColor="purple" buttonText="+ Add Feedback">
           <Icon className="top-bar__icon" icon="bulb" />
+          <h3>{tasks.length} suggestions</h3>
         </TopBar>
-        {tasks.map((item) => (
-          <FeedbackItem item={item} handleChange={handleChange} />
-        ))}
-
-        <Box>
-          <FeedbackEmpty
-            title="There is no feedback yet."
-            description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
-            buttonColor="purple"
-            buttonText="+ Add Feedback"
-          />
-        </Box>
+        {tasks ? (
+          tasks.map((item) => (
+            <FeedbackItem
+              key={item.id}
+              onClick={() => navigate(`/feedback/${item.id}`)}
+              item={item}
+              handleChange={handleChange}
+            />
+          ))
+        ) : (
+          <Box>
+            <FeedbackEmpty
+              title="There is no feedback yet."
+              description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
+              buttonColor="purple"
+              buttonText="+ Add Feedback"
+            />
+          </Box>
+        )}
       </div>
     </Template>
   );

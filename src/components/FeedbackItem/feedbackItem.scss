@@ -1,8 +1,22 @@
 .feedback {
   &__box {
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin: 0 0 16px 0;
+    }
     @media (min-width: $min-width-s) {
-      max-width: 600px;
       width: 100%;
+
+      &:hover {
+        h3 {
+          color: $blue;
+        }
+
+        h3 {
+          transition: 0.4s color ease;
+        }
+      }
     }
 
     @media (min-width: $min-width-l) {

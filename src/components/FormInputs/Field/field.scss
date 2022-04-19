@@ -1,7 +1,7 @@
 .field {
   width: 100%;
-  position: relative;
-  z-index: 1;
+  // position: relative;
+  // z-index: 1;
 
   &:not(:last-of-type) {
     margin: 0 0 24px 0;
@@ -49,7 +49,10 @@
     }
   }
 
-  .texarea {
+  .input {
+    min-height: 48px;
+  }
+  .textarea {
     min-height: 96px;
   }
 }

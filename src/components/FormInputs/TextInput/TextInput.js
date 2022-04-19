@@ -6,6 +6,7 @@ const TextInput = ({
   id,
   placeholder,
   textArea,
+  defaultValue,
   required = true,
 }) => {
   return (
@@ -15,6 +16,7 @@ const TextInput = ({
           <textarea
             onChange={onChange}
             required={required}
+            defaultValue={defaultValue}
             className={error ? "textarea textarea__error" : "textarea"}
             name={id}
             id={id}
@@ -27,6 +29,7 @@ const TextInput = ({
           <input
             required={required}
             onChange={onChange}
+            defaultValue={defaultValue}
             className={error ? "input input__error" : "input"}
             name={id}
             id={id}

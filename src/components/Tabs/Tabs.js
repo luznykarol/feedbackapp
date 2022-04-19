@@ -12,6 +12,7 @@ const Tabs = ({ tabs, data }) => {
         {tabs.map((item) => (
           <TabsCategories
             item={item}
+            key={item.id}
             tabActive={tabActive}
             setTabActive={setTabActive}
           />
@@ -19,12 +20,13 @@ const Tabs = ({ tabs, data }) => {
       </ul>
       <div className="tabs__content">
         {tabs.map((item) => (
-          <TabsHeader item={item} tabActive={tabActive} />
+          <TabsHeader key={item.id} item={item} tabActive={tabActive} />
         ))}
 
         <div className="tabs__items">
           {data.map((item) => (
             <RoadmapItem
+              key={item.id}
               item={item}
               style={tabActive === item.status ? {} : { display: "none" }}
             />

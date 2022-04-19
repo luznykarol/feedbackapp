@@ -11,7 +11,6 @@ import { TaskContext } from "../../providers/TaskProvider";
 const Navigation = ({
   title = "Frontend Mentor",
   description = "Feedback app",
-  a,
 }) => {
   const { roadmap } = useContext(TaskContext);
   const [selected, setSelected] = useState("all");
@@ -37,6 +36,7 @@ const Navigation = ({
           <Burger navActive={navActive} onClick={handleBurgerClick} />
         </div>
         <div
+          onClick={handleBurgerClick}
           className={
             navActive
               ? "nav__background nav__background--active"
@@ -52,6 +52,7 @@ const Navigation = ({
               {categories.map((item) => {
                 return (
                   <Tag
+                    key={item.id}
                     selected={selected}
                     value={item.tag}
                     text={item.label}
@@ -70,7 +71,7 @@ const Navigation = ({
             </div>
             <div className="map-container">
               {roadmap.map((item) => {
-                return <RoadmapLabel item={item} />;
+                return <RoadmapLabel key={item.id} item={item} />;
               })}
             </div>
           </Box>

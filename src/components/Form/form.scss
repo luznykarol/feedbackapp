@@ -8,12 +8,24 @@
   &__buttons {
     margin: 32px auto 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+
+    @media (min-width: $min-width-s) {
+      flex-direction: row;
+    }
 
     .button {
+      max-width: 100%;
+      width: 100%;
       &:not(:last-of-type) {
-        margin: 0 16px 0 0;
+        margin: 0 auto 16px auto;
+      }
+
+      @media (min-width: $min-width-s) {
+        max-width: initial;
+        &:not(:last-of-type) {
+          margin: 0 16px 0 0;
+        }
       }
     }
   }

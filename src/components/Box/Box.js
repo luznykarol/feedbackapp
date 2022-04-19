@@ -1,11 +1,11 @@
 import React from "react";
 import Icon from "../Icon/Icon";
 
-const Box = ({ children, className, icon, variant = "medium" }) => {
+const Box = ({ children, className, icon, onClick, variant = "medium" }) => {
   const combineClass = `box ${className} ${variant}`;
 
   return (
-    <div className={combineClass}>
+    <div onClick={onClick} className={combineClass}>
       {icon && (
         <div className="box__icon">
           <Icon className={icon && icon} icon={icon} />

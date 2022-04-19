@@ -1,6 +1,6 @@
 import React from "react";
 
-const Burger = ({ onClick, navActive }) => {
+const Burger = ({ onClick, navActive, buttonRef }) => {
   return (
     <button
       onClick={onClick}

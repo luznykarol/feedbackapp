@@ -31,6 +31,15 @@
       }
     }
   }
+
+  &__feedback {
+    max-width: 730px;
+  }
+
+  &__add-feedback,
+  &__edit-feedback {
+    max-width: 572px;
+  }
 }
 
 .roadmap {

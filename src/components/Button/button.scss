@@ -11,7 +11,8 @@
   &--purple,
   &--blue,
   &--orange,
-  &--grey {
+  &--grey,
+  &--red {
     max-width: 158px;
     width: 100%;
     border-radius: $radius-m;
@@ -24,6 +25,14 @@
 
     &:hover {
       background-color: #c75af6;
+    }
+  }
+
+  &--red {
+    background-color: $red;
+
+    &:hover {
+      background-color: #e98888;
     }
   }
 
@@ -46,6 +55,11 @@
     &:hover {
       background-color: #e98888;
     }
+  }
+
+  &--s {
+    max-width: 93px;
+    width: 100%;
   }
 
   &--transparent {

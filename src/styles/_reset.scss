@@ -26,4 +26,14 @@ button {
   color: $blue;
   font-size: $text-xs;
   font-weight: 600;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }

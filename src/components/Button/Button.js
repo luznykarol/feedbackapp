@@ -10,9 +10,10 @@ const Button = ({
   color = "orange",
   className,
   icon,
+  small,
 }) => {
   const navigate = useNavigate();
-  const styles = `button button--${color} ${className}`;
+  const styles = `button button--${color} ${small && "button--s"} ${className}`;
 
   const handleNavigate = () => {
     navigate(-1);

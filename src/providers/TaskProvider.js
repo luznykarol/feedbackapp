@@ -1,24 +1,46 @@
 import React, { createContext, useState, useEffect } from "react";
 import { taskData } from "../data/taskData";
-
+import { useNavigate } from "react-router-dom";
 export const TaskContext = createContext({
   tasks: [],
-  handleAddTask: () => {},
+  addTask: () => {},
 });
 
 const TaskProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState(taskData);
+  const [currentTaskId, setCurrentTaskId] = useState(0);
+  const [formValues, setFormValues] = useState();
+  const [comments, setComments] = useState([]);
+  const [vote, setVote] = useState(0);
+  const [currentTask, setCurrentTask] = useState();
   const [isSending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [formError, setFormError] = useState(true);
   const [roadmap, setRoadmap] = useState(taskData);
+  const [selectOpen, setSelectOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleTaskByCategory = (arr, category) => {
-    arr.filter((item) => {
-      if (item.status === category) {
-        return item;
-      }
+  useEffect(() => {
+    if (tasks) {
+      setRoadmap(createRoadmap(tasks));
+    }
+  }, [tasks]);
+
+  const handleSelectClick = () => {
+    setSelectOpen(!selectOpen);
+  };
+
+  const handleOptionClick = (option) => () => {
+    console.log("option", option.value);
+
+    setSelectedOption(option.value);
+    setSelectOpen(false);
+    setFormValues({
+      ...formValues,
+      category: option.value,
     });
+    console.log(formValues, option);
   };
 
   const createRoadmap = (arr) => {
@@ -34,11 +56,16 @@ const TaskProvider = ({ children }) => {
     return Object.values(obj);
   };
 
-  useEffect(() => {
-    if (tasks) {
-      setRoadmap(createRoadmap(tasks));
-    }
-  }, []);
+  const getCurrentTask = (id) => {
+    setCurrentTask(tasks?.filter((task) => task.id === id));
+  };
+
+  const handleUpvote = (vote) => {
+    setVote(() => ({
+      value: !vote.value,
+      count: !vote.value ? vote.count + 1 : vote.count - 1,
+    }));
+  };
 
   const defaultFormState = {
     title: "",
@@ -49,7 +76,7 @@ const TaskProvider = ({ children }) => {
     status: "planned",
   };
 
-  const handleAddTask = (values) => {
+  const addTask = (values) => {
     const newTask = {
       id: tasks.length + 1,
       title: values.title,
@@ -57,24 +84,55 @@ const TaskProvider = ({ children }) => {
       description: values.description,
       upvotes: 0,
       comments: [],
-      status: values.status,
+      status: "planned",
     };
     setTasks([...tasks, newTask]);
+    navigate("/");
+  };
+  console.log(tasks);
+
+  const deleteTask = (id) => {
+    let updatedTasks = [...tasks].filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+    navigate("/");
   };
 
-  const handleRemoveTask = (id) => {
-    const filteredTasks = tasks.filter((task) => task.title !== id);
-    setTasks(filteredTasks);
+  const editTask = (id) => {
+    const updatedTasks = [...tasks].map((task) => {
+      if (task.id === id) {
+        return formValues;
+      } else {
+        return task;
+      }
+    });
+    setTasks(updatedTasks);
+    navigate("/");
   };
 
   return (
     <TaskContext.Provider
       value={{
         tasks,
-        handleAddTask,
-        handleRemoveTask,
+        addTask,
+        editTask,
+        deleteTask,
         roadmap,
         defaultFormState,
+        currentTaskId,
+        setCurrentTaskId,
+        getCurrentTask,
+        currentTask,
+        setCurrentTask,
+        setTasks,
+        formValues,
+        setFormValues,
+
+        handleUpvote,
+        handleSelectClick,
+        handleOptionClick,
+        setSelectedOption,
+        selectedOption,
+        selectOpen,
       }}>
       {children}
     </TaskContext.Provider>

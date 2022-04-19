@@ -36,5 +36,9 @@
 }
 
 .large {
-  padding: 52px 42px;
+  padding: 16px;
+
+  @media (min-width: $min-width-s) {
+    padding: 52px 42px;
+  }
 }

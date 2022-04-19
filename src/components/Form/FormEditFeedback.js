@@ -1,25 +1,31 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import Box from "../Box/Box";
 import Select from "../FormInputs/Select/Select";
 import TextInput from "../FormInputs/TextInput/TextInput";
 import Field from "../FormInputs/Field/Field";
 import Button from "../Button/Button";
 import { TaskContext } from "../../providers/TaskProvider";
+
 import { categories } from "../../helpers/helpers";
 
-const FormAddFeedback = ({ title }) => {
+const FormEditFeedback = ({ title, feedbackId }) => {
   const {
-    addTask,
-    handleSelectClick,
-    handleOptionClick,
-    selectedOption,
-    setSelectedOption,
-    selectOpen,
+    currentTask,
+    getCurrentTask,
+    deleteTask,
     formValues,
     setFormValues,
+    editTask,
+    handleSelectClick,
+    handleOptionClick,
+    selectOpen,
   } = useContext(TaskContext);
 
-  const formRef = useRef();
+  useEffect(() => {
+    getCurrentTask(feedbackId);
+
+    currentTask && setFormValues(currentTask[0]);
+  }, [feedbackId]);
 
   const handleInputChange = (e) => {
     setFormValues({
@@ -28,22 +34,14 @@ const FormAddFeedback = ({ title }) => {
     });
   };
 
-  const handleSubmitTask = (e) => {
+  const handleEditTask = (e) => {
     e.preventDefault();
-    addTask(formValues);
-
-    formRef.current.reset();
+    editTask(feedbackId);
   };
 
-  useEffect(() => {
-    if (!selectedOption) {
-      setSelectedOption(categories[0].value);
-    }
-  }, []);
-
   return (
-    <Box className="box__form" variant="large" icon="plus">
-      <form className="form" onSubmit={handleSubmitTask} ref={formRef}>
+    <Box className="box__form" variant="large" icon="pen">
+      <form className="form" onSubmit={handleEditTask}>
         <div className="form__title">{title}</div>
         <div className="form__fields">
           <Field
@@ -51,6 +49,7 @@ const FormAddFeedback = ({ title }) => {
             description="Add a short, descriptive headline">
             <TextInput
               id="title"
+              defaultValue={formValues?.title}
               onChange={handleInputChange}
               title="Feedback Title"
               description="Add a short, descriptive headline"
@@ -62,7 +61,7 @@ const FormAddFeedback = ({ title }) => {
             <Select
               onClick={handleSelectClick}
               onOptionClick={handleOptionClick}
-              selectedOption={selectedOption}
+              selectedOption={formValues?.category}
               isOpen={selectOpen}
               id="category"
               options={categories}
@@ -74,6 +73,7 @@ const FormAddFeedback = ({ title }) => {
             title="Feedback Detail"
             description="Include any specific comments on what should be improved, added, etc.">
             <TextInput
+              defaultValue={formValues?.description}
               id="description"
               onChange={handleInputChange}
               title="Feedback Detail"
@@ -83,12 +83,18 @@ const FormAddFeedback = ({ title }) => {
           </Field>
         </div>
         <div className="form__buttons">
-          <Button color="grey" text="Cancel" />
-          <Button type="submit" color="purple" text="Add Feedback" />
+          <Button
+            small
+            onClick={() => deleteTask(feedbackId)}
+            color="red"
+            text="Delete"
+          />
+          <Button small color="grey" text="Cancel" />
+          <Button type="submit" color="purple" text="Save Changes" />
         </div>
       </form>
     </Box>
   );
 };
 
-export default FormAddFeedback;
+export default FormEditFeedback;

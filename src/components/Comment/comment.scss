@@ -1,0 +1,52 @@
+.comments {
+  margin: 28px auto 0 auto;
+}
+
+.comment {
+  margin: 0 auto 24px auto;
+
+  @media (min-width: $min-width-s) {
+    margin: 0 auto 32px auto;
+  }
+  &__author {
+    display: flex;
+    margin: 0 auto 16px auto;
+
+    &__text {
+      &__name,
+      &__handle {
+        font-size: $text-s;
+      }
+      &__name {
+        font-weight: bold;
+      }
+
+      &__handle {
+        color: $grey-lightest;
+      }
+    }
+
+    &__image {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      overflow: hidden;
+      border-radius: $radius-full;
+      border: 1px solid black;
+      margin: 0 16px 0 0;
+
+      @media (min-width: $min-width-s) {
+        margin: 0 32px 0 0;
+      }
+    }
+  }
+
+  &__content {
+    font-size: $text-s;
+    color: $grey-lightest;
+
+    @media (min-width: $min-width-s) {
+      margin: 0 0 0 72px;
+    }
+  }
+}

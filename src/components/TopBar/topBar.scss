@@ -9,6 +9,12 @@
   // margin: 0 auto 24px;
   min-height: 72px;
 
+  &__roadmap {
+    .top-bar__left {
+      display: block;
+    }
+  }
+
   &__left {
     display: flex;
     align-items: center;

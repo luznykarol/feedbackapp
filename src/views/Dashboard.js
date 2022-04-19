@@ -29,25 +29,27 @@ const Dashboard = () => {
           <Icon className="top-bar__icon" icon="bulb" />
           <h3>{tasks.length} suggestions</h3>
         </TopBar>
-        {tasks ? (
-          tasks.map((item) => (
-            <FeedbackItem
-              key={item.id}
-              onClick={() => navigate(`/feedback/${item.id}`)}
-              item={item}
-              handleChange={handleChange}
-            />
-          ))
-        ) : (
-          <Box>
-            <FeedbackEmpty
-              title="There is no feedback yet."
-              description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
-              buttonColor="purple"
-              buttonText="+ Add Feedback"
-            />
-          </Box>
-        )}
+        <div className="template__dashboard__content__items">
+          {tasks ? (
+            tasks.map((item) => (
+              <FeedbackItem
+                key={item.id}
+                onClick={() => navigate(`/feedback/${item.id}`)}
+                item={item}
+                handleChange={handleChange}
+              />
+            ))
+          ) : (
+            <Box>
+              <FeedbackEmpty
+                title="There is no feedback yet."
+                description="Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app."
+                buttonColor="purple"
+                buttonText="+ Add Feedback"
+              />
+            </Box>
+          )}
+        </div>
       </div>
     </Template>
   );

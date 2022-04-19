@@ -80,14 +80,14 @@ const TaskProvider = ({ children }) => {
     const newTask = {
       id: tasks.length + 1,
       title: values.title,
-      category: values.category,
+      category: values.category ? values.category : defaultFormState.category,
       description: values.description,
       upvotes: 0,
       comments: [],
       status: "planned",
     };
     setTasks([...tasks, newTask]);
-    navigate("/");
+    navigate(-1);
   };
   console.log(tasks);
 
@@ -126,7 +126,6 @@ const TaskProvider = ({ children }) => {
         setTasks,
         formValues,
         setFormValues,
-
         handleUpvote,
         handleSelectClick,
         handleOptionClick,

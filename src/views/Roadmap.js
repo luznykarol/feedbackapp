@@ -9,7 +9,11 @@ const Roadmap = () => {
   const { tasks, roadmap } = useContext(TaskContext);
   return (
     <Template className="roadmap">
-      <TopBar buttonColor="purple" buttonText="+ Add Feedback">
+      <TopBar
+        type="roadmap"
+        buttonColor="purple"
+        className="roadmap"
+        buttonText="+ Add Feedback">
         <Button icon text="Go back" color="transparent" />
         <h1 className="roadmap__heading">Roadmap</h1>
       </TopBar>

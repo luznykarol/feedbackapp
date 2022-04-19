@@ -47,7 +47,11 @@ const Feedback = () => {
       ))}
       {comments && (
         <Box className="">
-          <h3>{comments.length} comments</h3>
+          <h3>
+            {`${comments.length} ${
+              comments.length === 1 ? "Comment" : "Comments"
+            }`}
+          </h3>
           <div className="comments">
             {comments.map((item) => {
               return <Comment key={item.id} item={item} />;

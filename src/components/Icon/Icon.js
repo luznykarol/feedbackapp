@@ -7,6 +7,8 @@ import TextBubble from "../../assets/icons/textbubble";
 import Pen from "../../assets/icons/pen";
 import Plus from "../../assets/icons/plus";
 import Tick from "../../assets/icons/tick";
+import Mail from "../../assets/icons/mail";
+import Lock from "../../assets/icons/lock";
 
 const Icon = ({ icon, className }) => {
   const icons = {
@@ -18,6 +20,8 @@ const Icon = ({ icon, className }) => {
     plus: Plus,
     pen: Pen,
     tick: Tick,
+    mail: Mail,
+    lock: Lock,
   };
 
   const Icon = icons[icon];
